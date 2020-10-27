@@ -12,7 +12,7 @@ namespace Sorter.Core
     {
         private readonly Func<string, string> _generateFileName;
         private readonly string _dataDirectory;
-        private string _keysPattern = @"sorted_([^_]+)_?(.+)?.txt";
+        private string _keysPattern = @"sorted_map_([^_]+)_?(.+)?.txt";
         public Reducer(string dataDirectory)
         {
             _dataDirectory = dataDirectory;
@@ -30,7 +30,7 @@ namespace Sorter.Core
                     var from = fromMatches.First().Groups[1];
                     var toMatches = Regex.Matches(fileNames.Last(), _keysPattern).Last();
                     var to = string.IsNullOrWhiteSpace(toMatches.Groups[2].Value) ? toMatches.Groups[1] : toMatches.Groups[2];
-                    using var file = File.CreateText(_generateFileName($"sorted_{from.Value}_{to.Value}.txt"));
+                    using var file = File.CreateText(_generateFileName($"sorted_map_{from.Value}_{to.Value}.txt"));
                     foreach (var name in fileNames)
                     {
                         string sourceFile = _generateFileName(name);

@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace Sorter.Core
@@ -18,17 +20,17 @@ namespace Sorter.Core
         private readonly int _maxFileSize;
         private readonly ILineProcessor _lineProcessor;
         private readonly Func<string, string> _generateFileName;
-        private object _readLockObject = new object();
         
         private const char Delimiter = '.';
+        private const int _500_MiB = 524_288_000;
         private const int _300_MiB = 314_572_800;
         private const int _100_MiB = 104_857_600;
         private const int _10_MiB = 10_485_760;
         private const int BatchSize = 1000000;
-        private ConcurrentQueue<string> _buffer = new ConcurrentQueue<string>();
+        private static ConcurrentDictionary<string, object> _lockObjects = new ConcurrentDictionary<string, object>();
 
 
-        public Mapper(ILineProcessor lineProcessor, string dataDirectory, int maxFileSize = _10_MiB)
+        public Mapper(ILineProcessor lineProcessor, string dataDirectory, int maxFileSize = _500_MiB)
         {
             _lineProcessor = lineProcessor;
             _maxFileSize = maxFileSize;
@@ -48,89 +50,33 @@ namespace Sorter.Core
                 = new ConcurrentDictionary<string, ChunkInfo>();
             try
             {
-                FileInfo info = new FileInfo(source);
                 var reader = File.OpenText(source);
                 List<Task> resultTasks = new List<Task>();
                 await Task.Run(() =>
                 {
-                    var currentPosition = 0;
+                    char[] temp = new char[BatchSize];
                     do
                     {
-                        char[] temp = new char[BatchSize];
-                        reader.Read(temp, 0, currentPosition + BatchSize <= info.Length ? BatchSize : (int)info.Length - currentPosition);
+                        reader.Read(temp, 0, BatchSize);
                         StringBuilder result = new StringBuilder(new string(temp));
-                        StringBuilder tail = new StringBuilder();
-                        do
-                        {
-                            if (reader.EndOfStream) break;
-                            tail.Append((char) reader.Read());
-                        } while (!tail.ToString().Contains(Environment.NewLine));
-
+                        if (reader.EndOfStream) break;
+                        var tail = reader.ReadLine();
                         result.Append(tail);
-                        _buffer.Enqueue(result.ToString());
-                        currentPosition += result.Length;
-                        resultTasks.Add(Task.Run(() =>
-                        {
-                            if (!_buffer.TryDequeue(out string data)) return;
-                            var items = data.Split(Environment.NewLine);
-                            foreach (var line in items)
-                            {
-                                string key;
-                                string item;
-                                string[] values = _lineProcessor.Parse(line);
-                                if (values.Length < 2) continue;
-                                if (reverseItems)
-                                {
-                                    key = values[1].Length > keyLength
-                                        ? values[1].Substring(0, keyLength)
-                                        : values[1];
-                                    item = $"{values[1]}{Delimiter}{values[0]}";
-                                }
-                                else
-                                {
-                                    key = values[0].Length > keyLength ? values[0].Substring(0, keyLength) : values[0];
-                                    item = line;
-                                }
-
-                                lock (_readLockObject)
-                                {
-                                    ChunkInfo currentStream = writers.GetOrAdd(key, (val) =>
-                                    {
-                                        string file = _generateFileName(val);
-                                        return new ChunkInfo
-                                        {
-                                            File = file,
-                                            Name = val,
-                                            Buffer = new ConcurrentQueue<string>(),
-                                            StreamWriter = new StreamWriter(File.Open(file, FileMode.OpenOrCreate))
-                                        };
-                                    });
-                                    currentStream.Buffer.Enqueue(item);
-                                }
-
-                            }
-
-                            foreach (var writer in writers)
-                            {
-                                lock (writer.Value)
-                                {
-                                    while (writer.Value.Buffer.TryDequeue(out string val))
-                                    {
-                                        writer.Value.StreamWriter.WriteLine(val);
-                                    }
-
-                                    writer.Value.StreamWriter.Flush();
-                                }
-                            }
-                        }));
+                        resultTasks.Add(ProcessBatch(keyLength, reverseItems, result.ToString(), writers));
                     } while (!reader.EndOfStream);
                 });
 
                 await Task.WhenAll(resultTasks);
+                reader.Close();
+                reader.Dispose();
             }
             finally
             {
-                await Task.WhenAll(writers.Select(w => w.Value.StreamWriter.DisposeAsync().AsTask()).ToArray());
+                foreach (var writer in writers)
+                {
+                    writer.Value.StreamWriter.Close();
+                    writer.Value.StreamWriter.Dispose();
+                }
             }
 
             await Task.WhenAll(writers.Select(async s =>
@@ -143,6 +89,71 @@ namespace Sorter.Core
                     File.Delete(file);
                 }
             }));
+        }
+
+        private async Task ProcessBatch(int keyLength, bool reverseItems, string data,
+            ConcurrentDictionary<string, ChunkInfo> writers)
+        {
+            await Task.Run(() =>
+            {
+                foreach (var line in data.Split(Environment.NewLine))
+                {
+                    if (string.IsNullOrWhiteSpace(line)) continue;
+                    string key;
+                    string item;
+                    if (reverseItems)
+                    {
+                        string[] values = _lineProcessor.Parse(line);
+                        if (values.Length < 2) continue;
+                        string trimmedValue = values[1].Replace(" ", string.Empty);
+                        key = trimmedValue.Length > keyLength
+                            ? trimmedValue.Substring(0, keyLength)
+                            : trimmedValue;
+                        item = $"{values[1]}{Delimiter}{values[0]}";
+                    }
+                    else
+                    {
+                        // Items already swapped
+                        string trimmedValue = line.Replace(" ", string.Empty)
+                            .Replace("\r", string.Empty);
+                        key = trimmedValue.Length > keyLength ? trimmedValue.Substring(0, keyLength) : trimmedValue;
+                        item = line;
+                    }
+
+                    object currentStreamLock = _lockObjects.GetOrAdd(key, new object());
+
+                    lock (currentStreamLock)
+                    {
+                        ChunkInfo currentStream = writers.GetOrAdd(key, (val) =>
+                        {
+                            string file = _generateFileName(val);
+                            return new ChunkInfo
+                            {
+                                File = file,
+                                Name = val,
+                                Buffer = new StringBuilder(),
+                                StreamWriter =
+                                    new StreamWriter(File.Open(file, FileMode.OpenOrCreate))
+                            };
+                        });
+                        currentStream.Buffer.Append(item);
+                        currentStream.Buffer.Append(Environment.NewLine);
+                    }
+                }
+
+                foreach (var writer in writers)
+                {
+                    if (writer.Value.Buffer.Length > 0)
+                    {
+                        var currentStreamLock = _lockObjects[writer.Key];
+                        lock (currentStreamLock)
+                        {
+                            writer.Value.StreamWriter.Write(writer.Value.Buffer);
+                            writer.Value.Buffer.Clear();
+                        }
+                    }
+                }
+            });
         }
     }
 }

@@ -14,14 +14,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3b9f98dc-408d-4af9-9aa0-caec29a1fae9" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../FastestMapReduce.sln" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Core/ChunkInfo.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Core/Parser.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Core/Reducer.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Core/Sorter.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FileSource.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Helpers/CollectionExtensions.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FastestMapReduce.sln" beforeDir="false" afterPath="$PROJECT_DIR$/../FastestMapReduce.sln" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.sorter.dir/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.sorter.dir/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core/ChunkInfo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Core/ChunkInfo.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core/Comparer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Comparer.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core/Mapper.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Mapper.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core/Reducer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Reducer.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core/Sorter.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Sorter.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,51 +31,56 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/AD61CA47-F8B7-4CC6-93A0-BA44CC73B5C7/328/FileStream.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/EC16EAA1-1DDC-4637-B44F-F6D7212648BB/B/PartitionerStatic.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/AD61CA47-F8B7-4CC6-93A0-BA44CC73B5C7/337/TextReader.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/AD61CA47-F8B7-4CC6-93A0-BA44CC73B5C7/188/EncoderNLS.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/AD61CA47-F8B7-4CC6-93A0-BA44CC73B5C7/335/StreamReader.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$USER_HOME$/.nuget/packages/microsoft.net.test.sdk/16.7.1/build/netcoreapp2.1/Microsoft.NET.Test.Sdk.Program.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/7DBAA2AB-776C-40CB-83A3-4308F2D96A57/14/Stack.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/4BA59EE8-6A08-41BD-8281-3B084FC44272/9/TaskReplicator.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/AD61CA47-F8B7-4CC6-93A0-BA44CC73B5C7/3DC/List.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/AD61CA47-F8B7-4CC6-93A0-BA44CC73B5C7/338/TextWriter.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/AD61CA47-F8B7-4CC6-93A0-BA44CC73B5C7/DC/Tuple.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/AD61CA47-F8B7-4CC6-93A0-BA44CC73B5C7/18/Buffer.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/EC16EAA1-1DDC-4637-B44F-F6D7212648BB/04/585a0a6b/ConcurrentBag`1.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/6D13C30E-8D2C-4F45-8A43-BA680CD6B33D/23/File.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/31F94AF4-0455-4C4C-BD4F-AB58A9F2D1BF/46/ThrowHelper.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/AD61CA47-F8B7-4CC6-93A0-BA44CC73B5C7/135/Monitor.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/AD61CA47-F8B7-4CC6-93A0-BA44CC73B5C7/178/ValueTask.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/AD61CA47-F8B7-4CC6-93A0-BA44CC73B5C7/15D/ThreadLocal.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/4BA59EE8-6A08-41BD-8281-3B084FC44272/5/Parallel.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/AD61CA47-F8B7-4CC6-93A0-BA44CC73B5C7/336/StreamWriter.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/AD61CA47-F8B7-4CC6-93A0-BA44CC73B5C7/8d/23a4b98f/IEnumerator.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/4A3D0805-6747-4EDF-B265-35BC4D740FEE/1c/400178b1/Stopwatch.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/6D13C30E-8D2C-4F45-8A43-BA680CD6B33D/24/FileInfo.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/AD61CA47-F8B7-4CC6-93A0-BA44CC73B5C7/328/FileStream.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/EC16EAA1-1DDC-4637-B44F-F6D7212648BB/7/ConcurrentDictionary.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$USER_HOME$/.nuget/packages/microsoft.net.test.sdk/16.7.1/build/netcoreapp2.1/Microsoft.NET.Test.Sdk.Program.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/AD61CA47-F8B7-4CC6-93A0-BA44CC73B5C7/63/Byte.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/AD61CA47-F8B7-4CC6-93A0-BA44CC73B5C7/39/8958b3d6/IEnumerable.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/AD61CA47-F8B7-4CC6-93A0-BA44CC73B5C7/16B/Task.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/AD61CA47-F8B7-4CC6-93A0-BA44CC73B5C7/43/3620029d/IEnumerable`1.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/AD61CA47-F8B7-4CC6-93A0-BA44CC73B5C7/3DC/List.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/AD61CA47-F8B7-4CC6-93A0-BA44CC73B5C7/1E0/ExceptionDispatchInfo.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/AD61CA47-F8B7-4CC6-93A0-BA44CC73B5C7/17B/StringBuilder.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/AD61CA47-F8B7-4CC6-93A0-BA44CC73B5C7/14/Attribute.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/AD61CA47-F8B7-4CC6-93A0-BA44CC73B5C7/DC/Tuple.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/AD61CA47-F8B7-4CC6-93A0-BA44CC73B5C7/18/Buffer.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/AD61CA47-F8B7-4CC6-93A0-BA44CC73B5C7/13/Attribute.CoreCLR.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/EC16EAA1-1DDC-4637-B44F-F6D7212648BB/04/585a0a6b/ConcurrentBag`1.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/6D13C30E-8D2C-4F45-8A43-BA680CD6B33D/23/File.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/31F94AF4-0455-4C4C-BD4F-AB58A9F2D1BF/46/ThrowHelper.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/AD61CA47-F8B7-4CC6-93A0-BA44CC73B5C7/329/FileStream.Windows.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/AD61CA47-F8B7-4CC6-93A0-BA44CC73B5C7/A8/Number.Parsing.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/AD61CA47-F8B7-4CC6-93A0-BA44CC73B5C7/36/String.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/AD61CA47-F8B7-4CC6-93A0-BA44CC73B5C7/135/Monitor.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/AD61CA47-F8B7-4CC6-93A0-BA44CC73B5C7/3CF/ArraySortHelper.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/6D13C30E-8D2C-4F45-8A43-BA680CD6B33D/2E/FileSystem.Windows.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/AD61CA47-F8B7-4CC6-93A0-BA44CC73B5C7/3D9/KeyValuePair.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/AD61CA47-F8B7-4CC6-93A0-BA44CC73B5C7/178/ValueTask.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/AD61CA47-F8B7-4CC6-93A0-BA44CC73B5C7/38/String.Manipulation.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/4BA59EE8-6A08-41BD-8281-3B084FC44272/5/Parallel.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/AD61CA47-F8B7-4CC6-93A0-BA44CC73B5C7/D3/ThrowHelper.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Core/Mapper.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/AD61CA47-F8B7-4CC6-93A0-BA44CC73B5C7/336/StreamWriter.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/AD61CA47-F8B7-4CC6-93A0-BA44CC73B5C7/8d/23a4b98f/IEnumerator.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/4A3D0805-6747-4EDF-B265-35BC4D740FEE/1c/400178b1/Stopwatch.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/AD61CA47-F8B7-4CC6-93A0-BA44CC73B5C7/32F/Path.Windows.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/EC16EAA1-1DDC-4637-B44F-F6D7212648BB/9/OrderablePartitioner.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/6D13C30E-8D2C-4F45-8A43-BA680CD6B33D/24/FileInfo.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/AD61CA47-F8B7-4CC6-93A0-BA44CC73B5C7/23/Environment.Windows.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/EC16EAA1-1DDC-4637-B44F-F6D7212648BB/6/ConcurrentBag.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
@@ -96,14 +100,14 @@
         <option value="$PROJECT_DIR$/sorter.csproj" />
         <option value="$PROJECT_DIR$/Helpers/Watcher.cs" />
         <option value="$PROJECT_DIR$/Core/Parser.cs" />
+        <option value="$PROJECT_DIR$/Core/File.cs" />
+        <option value="$PROJECT_DIR$/FileSource.cs" />
+        <option value="$PROJECT_DIR$/Program.cs" />
+        <option value="$PROJECT_DIR$/Helpers/CollectionExtensions.cs" />
+        <option value="$PROJECT_DIR$/Core/ChunkInfo.cs" />
         <option value="$PROJECT_DIR$/Core/Comparer.cs" />
         <option value="$PROJECT_DIR$/Core/Sorter.cs" />
         <option value="$PROJECT_DIR$/Core/Reducer.cs" />
-        <option value="$PROJECT_DIR$/Core/File.cs" />
-        <option value="$PROJECT_DIR$/FileSource.cs" />
-        <option value="$PROJECT_DIR$/Core/ChunkInfo.cs" />
-        <option value="$PROJECT_DIR$/Program.cs" />
-        <option value="$PROJECT_DIR$/Helpers/CollectionExtensions.cs" />
         <option value="$PROJECT_DIR$/Core/Mapper.cs" />
       </list>
     </option>
@@ -115,11 +119,11 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
-    <property name="DebuggerViewTab_PTCS_FirstProportionKey" value="0.52059925" />
-    <property name="DebuggerViewTab_PTCS_LastProportionKey" value="0.101123594" />
+    <property name="DebuggerViewTab_PTCS_FirstProportionKey" value="0.23880596" />
+    <property name="DebuggerViewTab_PTCS_LastProportionKey" value="0.056858566" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="XThreadsFramesViewSplitterKey" value="0.23963964" />
+    <property name="XThreadsFramesViewSplitterKey" value="0.29222974" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -132,7 +136,7 @@
   <component name="RunManager">
     <configuration name="sorter" type="DotNetProject" factoryName=".NET Project">
       <option name="EXE_PATH" value="$PROJECT_DIR$/bin/Debug/netcoreapp3.1/Sorter.dll" />
-      <option name="PROGRAM_PARAMETERS" value="$PROJECT_DIR$/../generator/bin/Debug/netcoreapp3.1/Data_5.txt" />
+      <option name="PROGRAM_PARAMETERS" value="$PROJECT_DIR$/../generator/bin/Debug/netcoreapp3.1/Data_2.txt" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/bin/Debug/netcoreapp3.1" />
       <option name="PASS_PARENT_ENVS" value="1" />
       <option name="USE_EXTERNAL_CONSOLE" value="0" />
@@ -166,7 +170,8 @@
       <workItem from="1603605470173" duration="604000" />
       <workItem from="1603619770323" duration="11722000" />
       <workItem from="1603692872182" duration="36783000" />
-      <workItem from="1603737710899" duration="7995000" />
+      <workItem from="1603737710899" duration="8130000" />
+      <workItem from="1603780429171" duration="17638000" />
     </task>
     <servers />
   </component>
@@ -193,106 +198,106 @@
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state x="382" y="345" key="#Inspection_severity/0.0.2560.1400@0.0.2560.1400" timestamp="1603737907865" />
-    <state x="492" y="197" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1603743330356">
+    <state x="492" y="197" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1603799958258">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state x="492" y="197" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.2560.1400@0.0.2560.1400" timestamp="1603743330356" />
+    <state x="492" y="197" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.2560.1400@0.0.2560.1400" timestamp="1603799958258" />
     <state x="686" y="462" key="#xdebugger.XInspectDialog" timestamp="1603709816433">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state x="686" y="462" key="#xdebugger.XInspectDialog/0.0.2560.1400@0.0.2560.1400" timestamp="1603709816433" />
-    <state width="879" height="464" key="DebuggerActiveHint" timestamp="1603745747533">
+    <state width="879" height="464" key="DebuggerActiveHint" timestamp="1603799164281">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="879" height="464" key="DebuggerActiveHint/0.0.2560.1400@0.0.2560.1400" timestamp="1603745747533" />
-    <state width="1099" height="655" key="GridCell.Tab.0.bottom" timestamp="1603745779398">
+    <state width="879" height="464" key="DebuggerActiveHint/0.0.2560.1400@0.0.2560.1400" timestamp="1603799164281" />
+    <state width="1438" height="446" key="GridCell.Tab.0.bottom" timestamp="1603800728350">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="1099" height="655" key="GridCell.Tab.0.bottom/0.0.2560.1400@0.0.2560.1400" timestamp="1603745779398" />
-    <state width="1099" height="655" key="GridCell.Tab.0.center" timestamp="1603745779398">
+    <state width="1438" height="446" key="GridCell.Tab.0.bottom/0.0.2560.1400@0.0.2560.1400" timestamp="1603800728350" />
+    <state width="1438" height="446" key="GridCell.Tab.0.center" timestamp="1603800728350">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="1099" height="655" key="GridCell.Tab.0.center/0.0.2560.1400@0.0.2560.1400" timestamp="1603745779398" />
-    <state width="1099" height="655" key="GridCell.Tab.0.left" timestamp="1603745779398">
+    <state width="1438" height="446" key="GridCell.Tab.0.center/0.0.2560.1400@0.0.2560.1400" timestamp="1603800728350" />
+    <state width="1438" height="446" key="GridCell.Tab.0.left" timestamp="1603800728350">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="1099" height="655" key="GridCell.Tab.0.left/0.0.2560.1400@0.0.2560.1400" timestamp="1603745779398" />
-    <state width="1099" height="655" key="GridCell.Tab.0.right" timestamp="1603745779398">
+    <state width="1438" height="446" key="GridCell.Tab.0.left/0.0.2560.1400@0.0.2560.1400" timestamp="1603800728350" />
+    <state width="1438" height="446" key="GridCell.Tab.0.right" timestamp="1603800728350">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="1099" height="655" key="GridCell.Tab.0.right/0.0.2560.1400@0.0.2560.1400" timestamp="1603745779398" />
-    <state width="1099" height="655" key="GridCell.Tab.1.bottom" timestamp="1603745779399">
+    <state width="1438" height="446" key="GridCell.Tab.0.right/0.0.2560.1400@0.0.2560.1400" timestamp="1603800728350" />
+    <state width="1438" height="446" key="GridCell.Tab.1.bottom" timestamp="1603800728350">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="1099" height="655" key="GridCell.Tab.1.bottom/0.0.2560.1400@0.0.2560.1400" timestamp="1603745779399" />
-    <state width="1099" height="655" key="GridCell.Tab.1.center" timestamp="1603745779399">
+    <state width="1438" height="446" key="GridCell.Tab.1.bottom/0.0.2560.1400@0.0.2560.1400" timestamp="1603800728350" />
+    <state width="1438" height="446" key="GridCell.Tab.1.center" timestamp="1603800728350">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="1099" height="655" key="GridCell.Tab.1.center/0.0.2560.1400@0.0.2560.1400" timestamp="1603745779399" />
-    <state width="1099" height="655" key="GridCell.Tab.1.left" timestamp="1603745779399">
+    <state width="1438" height="446" key="GridCell.Tab.1.center/0.0.2560.1400@0.0.2560.1400" timestamp="1603800728350" />
+    <state width="1438" height="446" key="GridCell.Tab.1.left" timestamp="1603800728350">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="1099" height="655" key="GridCell.Tab.1.left/0.0.2560.1400@0.0.2560.1400" timestamp="1603745779399" />
-    <state width="1099" height="655" key="GridCell.Tab.1.right" timestamp="1603745779399">
+    <state width="1438" height="446" key="GridCell.Tab.1.left/0.0.2560.1400@0.0.2560.1400" timestamp="1603800728350" />
+    <state width="1438" height="446" key="GridCell.Tab.1.right" timestamp="1603800728350">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="1099" height="655" key="GridCell.Tab.1.right/0.0.2560.1400@0.0.2560.1400" timestamp="1603745779399" />
-    <state width="1099" height="655" key="GridCell.Tab.2.bottom" timestamp="1603745779399">
+    <state width="1438" height="446" key="GridCell.Tab.1.right/0.0.2560.1400@0.0.2560.1400" timestamp="1603800728350" />
+    <state width="1438" height="446" key="GridCell.Tab.2.bottom" timestamp="1603800728350">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="1099" height="655" key="GridCell.Tab.2.bottom/0.0.2560.1400@0.0.2560.1400" timestamp="1603745779399" />
-    <state width="1099" height="655" key="GridCell.Tab.2.center" timestamp="1603745779399">
+    <state width="1438" height="446" key="GridCell.Tab.2.bottom/0.0.2560.1400@0.0.2560.1400" timestamp="1603800728350" />
+    <state width="1438" height="446" key="GridCell.Tab.2.center" timestamp="1603800728350">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="1099" height="655" key="GridCell.Tab.2.center/0.0.2560.1400@0.0.2560.1400" timestamp="1603745779399" />
-    <state width="1099" height="655" key="GridCell.Tab.2.left" timestamp="1603745779399">
+    <state width="1438" height="446" key="GridCell.Tab.2.center/0.0.2560.1400@0.0.2560.1400" timestamp="1603800728350" />
+    <state width="1438" height="446" key="GridCell.Tab.2.left" timestamp="1603800728350">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="1099" height="655" key="GridCell.Tab.2.left/0.0.2560.1400@0.0.2560.1400" timestamp="1603745779399" />
-    <state width="1099" height="655" key="GridCell.Tab.2.right" timestamp="1603745779399">
+    <state width="1438" height="446" key="GridCell.Tab.2.left/0.0.2560.1400@0.0.2560.1400" timestamp="1603800728350" />
+    <state width="1438" height="446" key="GridCell.Tab.2.right" timestamp="1603800728350">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="1099" height="655" key="GridCell.Tab.2.right/0.0.2560.1400@0.0.2560.1400" timestamp="1603745779399" />
-    <state width="1099" height="655" key="GridCell.Tab.3.bottom" timestamp="1603745779399">
+    <state width="1438" height="446" key="GridCell.Tab.2.right/0.0.2560.1400@0.0.2560.1400" timestamp="1603800728350" />
+    <state width="1438" height="446" key="GridCell.Tab.3.bottom" timestamp="1603800728351">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="1099" height="655" key="GridCell.Tab.3.bottom/0.0.2560.1400@0.0.2560.1400" timestamp="1603745779399" />
-    <state width="1099" height="655" key="GridCell.Tab.3.center" timestamp="1603745779399">
+    <state width="1438" height="446" key="GridCell.Tab.3.bottom/0.0.2560.1400@0.0.2560.1400" timestamp="1603800728351" />
+    <state width="1438" height="446" key="GridCell.Tab.3.center" timestamp="1603800728351">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="1099" height="655" key="GridCell.Tab.3.center/0.0.2560.1400@0.0.2560.1400" timestamp="1603745779399" />
-    <state width="1099" height="655" key="GridCell.Tab.3.left" timestamp="1603745779399">
+    <state width="1438" height="446" key="GridCell.Tab.3.center/0.0.2560.1400@0.0.2560.1400" timestamp="1603800728351" />
+    <state width="1438" height="446" key="GridCell.Tab.3.left" timestamp="1603800728351">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="1099" height="655" key="GridCell.Tab.3.left/0.0.2560.1400@0.0.2560.1400" timestamp="1603745779399" />
-    <state width="1099" height="655" key="GridCell.Tab.3.right" timestamp="1603745779399">
+    <state width="1438" height="446" key="GridCell.Tab.3.left/0.0.2560.1400@0.0.2560.1400" timestamp="1603800728351" />
+    <state width="1438" height="446" key="GridCell.Tab.3.right" timestamp="1603800728351">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="1099" height="655" key="GridCell.Tab.3.right/0.0.2560.1400@0.0.2560.1400" timestamp="1603745779399" />
-    <state width="1099" height="655" key="GridCell.Tab.4.bottom" timestamp="1603745779399">
+    <state width="1438" height="446" key="GridCell.Tab.3.right/0.0.2560.1400@0.0.2560.1400" timestamp="1603800728351" />
+    <state width="1438" height="446" key="GridCell.Tab.4.bottom" timestamp="1603800728351">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="1099" height="655" key="GridCell.Tab.4.bottom/0.0.2560.1400@0.0.2560.1400" timestamp="1603745779399" />
-    <state width="1099" height="655" key="GridCell.Tab.4.center" timestamp="1603745779399">
+    <state width="1438" height="446" key="GridCell.Tab.4.bottom/0.0.2560.1400@0.0.2560.1400" timestamp="1603800728351" />
+    <state width="1438" height="446" key="GridCell.Tab.4.center" timestamp="1603800728351">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="1099" height="655" key="GridCell.Tab.4.center/0.0.2560.1400@0.0.2560.1400" timestamp="1603745779399" />
-    <state width="1099" height="655" key="GridCell.Tab.4.left" timestamp="1603745779399">
+    <state width="1438" height="446" key="GridCell.Tab.4.center/0.0.2560.1400@0.0.2560.1400" timestamp="1603800728351" />
+    <state width="1438" height="446" key="GridCell.Tab.4.left" timestamp="1603800728351">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="1099" height="655" key="GridCell.Tab.4.left/0.0.2560.1400@0.0.2560.1400" timestamp="1603745779399" />
-    <state width="1099" height="655" key="GridCell.Tab.4.right" timestamp="1603745779399">
+    <state width="1438" height="446" key="GridCell.Tab.4.left/0.0.2560.1400@0.0.2560.1400" timestamp="1603800728351" />
+    <state width="1438" height="446" key="GridCell.Tab.4.right" timestamp="1603800728351">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="1099" height="655" key="GridCell.Tab.4.right/0.0.2560.1400@0.0.2560.1400" timestamp="1603745779399" />
+    <state width="1438" height="446" key="GridCell.Tab.4.right/0.0.2560.1400@0.0.2560.1400" timestamp="1603800728351" />
     <state x="1114" y="401" key="RiderGenerateDialog" timestamp="1603703550534">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state x="1114" y="401" key="RiderGenerateDialog/0.0.2560.1400@0.0.2560.1400" timestamp="1603703550534" />
-    <state width="805" height="708" key="XDebugger.FullValuePopup" timestamp="1603739790094">
+    <state width="1025" height="708" key="XDebugger.FullValuePopup" timestamp="1603799150516">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="805" height="708" key="XDebugger.FullValuePopup/0.0.2560.1400@0.0.2560.1400" timestamp="1603739790094" />
+    <state width="1025" height="708" key="XDebugger.FullValuePopup/0.0.2560.1400@0.0.2560.1400" timestamp="1603799150516" />
     <state x="201" y="440" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2" timestamp="1603718756409">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
@@ -312,34 +317,13 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Core/Mapper.cs</url>
-          <line>141</line>
-          <properties documentPath="C:\sources\personal\sorter\FastestMapReduce\sorter\Core\Mapper.cs" initialLine="141">
-            <startOffsets>
-              <option value="6048" />
-            </startOffsets>
-            <endOffsets>
-              <option value="6086" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="41" />
-        </line-breakpoint>
-      </breakpoints>
       <default-breakpoints>
         <breakpoint enabled="true" type="DotNet Exception Breakpoints" />
       </default-breakpoints>
     </breakpoint-manager>
     <watches-manager>
       <configuration name="DotNetProject">
-        <watch expression="toMatches.Groups[4]" language="C#" />
-        <watch expression="toMatches.Last().Groups[1]" language="C#" />
-        <watch expression="enumerator.MoveNext()" language="C#" />
-        <watch expression="symbol.ToString()" language="C#" />
-        <watch expression="temp.ToString()" language="C#" />
-        <watch expression="items.Where(s =&gt; string.IsNullOrWhiteSpace(s)).Count()" language="C#" />
-        <watch expression="writers.First(ss =&gt; ss.Key == s.Key).Value.StreamWriter.BaseStream.CanRead" language="C#" />
+        <watch expression="result.ToString()" language="C#" />
       </configuration>
     </watches-manager>
   </component>

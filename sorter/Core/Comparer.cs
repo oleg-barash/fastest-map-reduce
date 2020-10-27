@@ -20,12 +20,29 @@ namespace Sorter.Core
             var result = String.CompareOrdinal(first[0], second[0]);
             if (result == 0)
             {
-                int numberFirstValue = int.Parse(first[1]);
-                int numberSecondValue = int.Parse(second[1]);
+                IntParseFast(first[1], out int numberFirstValue);
+                IntParseFast(second[1], out int numberSecondValue);
                 result = numberFirstValue.CompareTo(numberSecondValue);
             }
 
             return result;
+        }
+        private bool IntParseFast(string s, out int result)
+        {
+            int value = 0;
+            var length = s.Length;
+            for (int i = 0; i < length; i++)
+            {
+                var c = s[i];
+                if (!char.IsDigit(c))
+                {
+                    result = -1;
+                    return false;
+                }
+                value = 10 * value + (c - 48);
+            }
+            result = value;
+            return true;
         }
     }
 }

@@ -93,16 +93,19 @@ namespace Sorter.Core
         {
             string resultFile = $"sorted_{fileName}";
             string sourceFile = _generateFileName(fileName);
-            using var file = File.CreateText(_generateFileName(resultFile));
-            using var reader = File.OpenText(sourceFile);
-            var sortedPairs = reader.ReadToEnd()
-                .Split(Environment.NewLine)
-                .Select(s => _lineProcessor.Parse(s))
-                .OrderBy(x => x, _comparer)
-                .Select(s => _lineProcessor.Combine(reverseItems ? s.Reverse().ToArray() : s));
-            file.Write(string.Join(Environment.NewLine, sortedPairs));
-            file.Close();
-            reader.Close();
+            using (var reader = File.OpenText(sourceFile))
+            {
+                var sortedPairs = reader.ReadToEnd()
+                    .Split(Environment.NewLine)
+                    .Select(s => _lineProcessor.Parse(s))
+                    .OrderBy(x => x, _comparer)
+                    .Select(s => _lineProcessor.Combine(reverseItems ? s.Reverse().ToArray() : s));
+                using (var file = File.CreateText(_generateFileName(resultFile)))
+                {
+                    file.Write(string.Join(Environment.NewLine, sortedPairs));
+                }
+            }
+
             File.Delete(sourceFile);
         }
     }

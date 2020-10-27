@@ -1,5 +1,7 @@
 ﻿using System.Collections.Concurrent;
+using System.Collections.Generic;
 using System.IO;
+using System.Text;
 
 namespace Sorter.Core
 {
@@ -8,6 +10,6 @@ namespace Sorter.Core
         public string Name { get; set; }
         public string File { get; set; }
         public StreamWriter StreamWriter { get; set; }
-        public ConcurrentQueue<string> Buffer { get; set; }
+        public StringBuilder Buffer { get; set; }
     }
 }

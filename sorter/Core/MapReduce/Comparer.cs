@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace Sorter.Core
+namespace Sorter.Core.MapReduce
 {
     public class StringPairComparer : IComparer<string[]>
     {

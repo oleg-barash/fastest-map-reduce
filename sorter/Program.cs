@@ -9,7 +9,7 @@ namespace Sorter
 {
     class Program
     {
-        static async Task Main(string[] args)
+        static void Main(string[] args)
         {
             if (args[0] == null || args.Length < 1)
             {
@@ -22,23 +22,29 @@ namespace Sorter
             Stopwatch totalStopwatch = new Stopwatch();
             totalStopwatch.Start();
 
-            Mapper mapper = new Mapper(new LineProcessor("."), workingDirectory);
+            SortTree sorter = new SortTree();
             Console.WriteLine("File mapping started ... ");
             stopwatch.Start();
-            await mapper.Run(args[0]);
+            sorter.Run(args[0]);
             Console.WriteLine($"Map stage took {stopwatch.Elapsed.ToString()}");
             
-            Core.Sorter sorter = new Core.Sorter(new LineProcessor("."), workingDirectory);
-            Console.WriteLine("File sorting started ... ");
-            stopwatch.Restart();
-            sorter.Run();
-            Console.WriteLine($"Sort stage took {stopwatch.Elapsed.ToString()}");
-            
-            Reducer reducer = new Reducer( workingDirectory);
-            Console.WriteLine("File merge started ... ");
-            stopwatch.Restart();
-            reducer.Run();
-            Console.WriteLine($"Merge stage took {stopwatch.Elapsed.ToString()}");
+            // Mapper mapper = new Mapper(new LineProcessor("."), workingDirectory);
+            // Console.WriteLine("File mapping started ... ");
+            // stopwatch.Start();
+            // await mapper.Run(args[0]);
+            // Console.WriteLine($"Map stage took {stopwatch.Elapsed.ToString()}");
+            //
+            // Core.Sorter sorter = new Core.Sorter(new LineProcessor("."), workingDirectory);
+            // Console.WriteLine("File sorting started ... ");
+            // stopwatch.Restart();
+            // sorter.Run();
+            // Console.WriteLine($"Sort stage took {stopwatch.Elapsed.ToString()}");
+            //
+            // Reducer reducer = new Reducer( workingDirectory);
+            // Console.WriteLine("File merge started ... ");
+            // stopwatch.Restart();
+            // reducer.Run();
+            // Console.WriteLine($"Merge stage took {stopwatch.Elapsed.ToString()}");
             
             Console.WriteLine($"Total consumed: {totalStopwatch.Elapsed.ToString()}");
 

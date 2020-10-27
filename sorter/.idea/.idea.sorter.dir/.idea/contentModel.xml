@@ -4,12 +4,16 @@
     <e p="C:\sources\personal\sorter\FastestMapReduce\sorter" t="IncludeRecursive">
       <e p="bin" t="ExcludeRecursive" />
       <e p="Core" t="Include">
-        <e p="ChunkInfo.cs" t="Include" />
-        <e p="Comparer.cs" t="Include" />
-        <e p="Mapper.cs" t="Include" />
-        <e p="Parser.cs" t="Include" />
-        <e p="Reducer.cs" t="Include" />
-        <e p="Sorter.cs" t="Include" />
+        <e p="MapReduce" t="Include">
+          <e p="ChunkInfo.cs" t="Include" />
+          <e p="Comparer.cs" t="Include" />
+          <e p="Mapper.cs" t="Include" />
+          <e p="Parser.cs" t="Include" />
+          <e p="Reducer.cs" t="Include" />
+          <e p="Sorter.cs" t="Include" />
+          <e p="TreeMapper.cs" t="Include" />
+        </e>
+        <e p="SortTree.cs" t="Include" />
       </e>
       <e p="FileSource.cs" t="Include" />
       <e p="Folder.DotSettings" t="Include" />

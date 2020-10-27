@@ -1,9 +1,7 @@
-﻿using System.Collections.Concurrent;
-using System.Collections.Generic;
-using System.IO;
+﻿using System.IO;
 using System.Text;
 
-namespace Sorter.Core
+namespace Sorter.Core.MapReduce
 {
     public class ChunkInfo
     {

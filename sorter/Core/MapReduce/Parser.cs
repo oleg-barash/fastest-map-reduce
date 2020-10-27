@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Sorter.Core
+namespace Sorter.Core.MapReduce
 {
     public interface ILineProcessor
     {

@@ -2,10 +2,9 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
-namespace Sorter.Core
+namespace Sorter.Core.MapReduce
 {
     public class Sorter
     {
@@ -34,7 +33,7 @@ namespace Sorter.Core
         /// <param name="source">Current stage filenames</param>
         private void Run(IEnumerable<string> source)
         {
-            Parallel.ForEach(source, fileName =>
+            Parallel.ForEach(source,new ParallelOptions { MaxDegreeOfParallelism = Environment.ProcessorCount }, fileName =>
             {
                 // in memory
                 //if (depth <= _reduceInMemoryLimit)

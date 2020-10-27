@@ -1,14 +1,12 @@
 ﻿using System;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Text;
-using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
-namespace Sorter.Core
+namespace Sorter.Core.MapReduce
 {
     public interface IMapper
     {
@@ -30,7 +28,7 @@ namespace Sorter.Core
         private static ConcurrentDictionary<string, object> _lockObjects = new ConcurrentDictionary<string, object>();
 
 
-        public Mapper(ILineProcessor lineProcessor, string dataDirectory, int maxFileSize = _500_MiB)
+        public Mapper(ILineProcessor lineProcessor, string dataDirectory, int maxFileSize = _300_MiB)
         {
             _lineProcessor = lineProcessor;
             _maxFileSize = maxFileSize;

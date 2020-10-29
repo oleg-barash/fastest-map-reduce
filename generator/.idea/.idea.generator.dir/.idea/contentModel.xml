@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ContentModelStore">
+    <e p="C:\sources\personal\sorter\FastestMapReduce\generator" t="IncludeRecursive">
+      <e p="bin" t="ExcludeRecursive" />
+      <e p="generator.csproj" t="IncludeRecursive" />
+      <e p="obj" t="ExcludeRecursive">
+        <e p="Debug" t="Include">
+          <e p="netcoreapp3.1" t="Include">
+            <e p="generator.AssemblyInfo.cs" t="Include" />
+          </e>
+        </e>
+      </e>
+      <e p="packages" t="ExcludeRecursive" />
+      <e p="Program.cs" t="Include" />
+    </e>
+    <e p="C:\Users\olegb\AppData\Local\JetBrains\Rider2020.2\extResources" t="IncludeRecursive" />
+    <e p="C:\Users\olegb\AppData\Local\JetBrains\Rider2020.2\resharper-host\Local\Transient\Rider\v202\SolutionCaches\_.19.01" t="ExcludeRecursive" />
+    <e p="C:\Users\olegb\AppData\Roaming\JetBrains\Rider2020.2\scratches" t="IncludeRecursive" />
+  </component>
+</project>

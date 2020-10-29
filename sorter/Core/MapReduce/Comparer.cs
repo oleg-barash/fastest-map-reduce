@@ -7,22 +7,12 @@ namespace Sorter.Core.MapReduce
     {
         public int Compare(string[] first, string[] second)
         {
-            if (first == null || first.Length != 2)
-            {
-                return (second != null && second.Length == 2) ? -1 : 0;
-            }
-            
-            if (second == null || second.Length != 2)
-            {
-                return 1;
-            }
-            
-            var result = String.CompareOrdinal(first[0], second[0]);
+            var result = String.CompareOrdinal(first[1], second[1]);
             if (result == 0)
             {
-                IntParseFast(first[1], out int numberFirstValue);
-                IntParseFast(second[1], out int numberSecondValue);
-                result = numberFirstValue.CompareTo(numberSecondValue);
+                IntParseFast(first[0], out int firstNumberValue);
+                IntParseFast(second[0], out int secondNumberValue);
+                result = firstNumberValue.CompareTo(secondNumberValue);
             }
 
             return result;

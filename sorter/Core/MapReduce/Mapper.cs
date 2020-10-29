@@ -19,14 +19,13 @@ namespace Sorter.Core.MapReduce
         private readonly ILineProcessor _lineProcessor;
         private readonly Func<string, string> _generateFileName;
         
-        private const char Delimiter = '.';
         private const int _500_MiB = 524_288_000;
         private const int _300_MiB = 314_572_800;
         private const int _100_MiB = 104_857_600;
         private const int _10_MiB = 10_485_760;
         private const int BatchSize = 1000000;
         private static ConcurrentDictionary<string, object> _lockObjects = new ConcurrentDictionary<string, object>();
-
+        private static ConcurrentDictionary<string, ChunkInfo> _writers = new ConcurrentDictionary<string, ChunkInfo>();
 
         public Mapper(ILineProcessor lineProcessor, string dataDirectory, int maxFileSize = _300_MiB)
         {
@@ -39,13 +38,6 @@ namespace Sorter.Core.MapReduce
 
         public async Task Run(string source, int keyLength = 1)
         {
-            await Run(source, keyLength, true);
-        }
-
-        private async Task Run(string source, int keyLength, bool reverseItems = false)
-        {
-            ConcurrentDictionary<string, ChunkInfo> writers
-                = new ConcurrentDictionary<string, ChunkInfo>();
             try
             {
                 var reader = File.OpenText(source);
@@ -55,12 +47,17 @@ namespace Sorter.Core.MapReduce
                     char[] temp = new char[BatchSize];
                     do
                     {
-                        reader.Read(temp, 0, BatchSize);
-                        StringBuilder result = new StringBuilder(new string(temp));
-                        if (reader.EndOfStream) break;
+                        var count = reader.Read(temp, 0, BatchSize);
+                        StringBuilder result = new StringBuilder(new string(temp.Take(count).ToArray()));
+                        if (reader.EndOfStream)
+                        {
+                            resultTasks.Add(ProcessBatch(keyLength, result.ToString()));
+                            break;
+                        }
                         var tail = reader.ReadLine();
                         result.Append(tail);
-                        resultTasks.Add(ProcessBatch(keyLength, reverseItems, result.ToString(), writers));
+                        resultTasks.Add(ProcessBatch(keyLength, result.ToString()));
+
                     } while (!reader.EndOfStream);
                 });
 
@@ -70,59 +67,41 @@ namespace Sorter.Core.MapReduce
             }
             finally
             {
-                foreach (var writer in writers)
+                foreach (var writer in _writers)
                 {
                     writer.Value.StreamWriter.Close();
                     writer.Value.StreamWriter.Dispose();
                 }
+                _writers.Clear();
             }
 
-            await Task.WhenAll(writers.Select(async s =>
+            await Task.WhenAll(_writers.Select(async s =>
             {
                 string file = _generateFileName(s.Key);
                 var info = new FileInfo(file);
                 if (info.Length > _maxFileSize)
                 {
-                    await Run(file, keyLength + 2, false);
+                    await Run(file, keyLength + 2);
                     File.Delete(file);
                 }
             }));
         }
 
-        private async Task ProcessBatch(int keyLength, bool reverseItems, string data,
-            ConcurrentDictionary<string, ChunkInfo> writers)
+        private async Task ProcessBatch(int keyLength, string data)
         {
             await Task.Run(() =>
             {
-                foreach (var line in data.Split(Environment.NewLine))
+                foreach (var line in data.Split(Environment.NewLine, StringSplitOptions.RemoveEmptyEntries))
                 {
-                    if (string.IsNullOrWhiteSpace(line)) continue;
-                    string key;
-                    string item;
-                    if (reverseItems)
-                    {
-                        string[] values = _lineProcessor.Parse(line);
-                        if (values.Length < 2) continue;
-                        string trimmedValue = values[1].Replace(" ", string.Empty);
-                        key = trimmedValue.Length > keyLength
-                            ? trimmedValue.Substring(0, keyLength)
-                            : trimmedValue;
-                        item = $"{values[1]}{Delimiter}{values[0]}";
-                    }
-                    else
-                    {
-                        // Items already swapped
-                        string trimmedValue = line.Replace(" ", string.Empty)
-                            .Replace("\r", string.Empty);
-                        key = trimmedValue.Length > keyLength ? trimmedValue.Substring(0, keyLength) : trimmedValue;
-                        item = line;
-                    }
-
+                    if (string.IsNullOrEmpty(line)) continue;
+                    string[] items = _lineProcessor.Parse(line);
+                    string trimmedValue = items[1].Replace("\r", string.Empty);
+                    string key = trimmedValue.Length > keyLength ? trimmedValue.Substring(0, keyLength) : trimmedValue;
                     object currentStreamLock = _lockObjects.GetOrAdd(key, new object());
 
                     lock (currentStreamLock)
                     {
-                        ChunkInfo currentStream = writers.GetOrAdd(key, (val) =>
+                        ChunkInfo currentStream = _writers.GetOrAdd(key, (val) =>
                         {
                             string file = _generateFileName(val);
                             return new ChunkInfo
@@ -134,12 +113,12 @@ namespace Sorter.Core.MapReduce
                                     new StreamWriter(File.Open(file, FileMode.OpenOrCreate))
                             };
                         });
-                        currentStream.Buffer.Append(item);
+                        currentStream.Buffer.Append(line);
                         currentStream.Buffer.Append(Environment.NewLine);
                     }
                 }
 
-                foreach (var writer in writers)
+                foreach (var writer in _writers)
                 {
                     if (writer.Value.Buffer.Length > 0)
                     {

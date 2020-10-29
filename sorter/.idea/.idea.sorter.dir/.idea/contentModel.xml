@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ContentModelStore">
-    <e p="C:\sources\personal\sorter\FastestMapReduce\sorter" t="IncludeRecursive">
+    <e p="C:\sources\personal\sorter\sorter" t="IncludeRecursive">
       <e p="bin" t="ExcludeRecursive" />
       <e p="Core" t="Include">
         <e p="CharTree" t="Include">
